@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaappi Kafe - Enhanced Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #3a2c1c url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%235a442f' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      color: #f8f3e6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .cafe-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 215, 150, 0.2) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255, 200, 120, 0.15) 0%, transparent 20%),
+        linear-gradient(to bottom, rgba(60, 40, 20, 0.3), rgba(40, 25, 10, 0.4));
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: rgba(50, 35, 20, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      animation: slideDown 0.7s ease;
+      border-bottom: 1px solid #8b5a2b;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    /* Enhanced Logo Styling */
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 5px;
+    }
+    .logo-img {
+      height: 100px;
+      width: auto;
+      filter: sepia(1) hue-rotate(10deg) saturate(8) brightness(1.1);
+    }
+
+    .logo-main {
+      font-size: 55px;
+      font-weight: 900;
+      color: #FFD84A;
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.8), 0 0 20px rgba(255, 223, 100, 1);
+    }
+
+    .logo-subtitle {
+      font-size: 25px;
+      font-weight: 600;
+      color: #FFF4CC;
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: #e6d5b8;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: 0.3s;
+      position: relative;
+      font-weight: 500;
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #f5d742;
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: #f5d742;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background-color: #f5d742;
+      transition: all 0.3s;
+    }
+
+    /* Hero Section */
+    #home {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(ellipse at center, rgba(139, 69, 19, 0.2) 0%, rgba(0,0,0,0) 70%),
+        linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%);
+      z-index: -1;
+    }
+
+    #home h2 {
+      font-size: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #f1e4c9;
+      animation: softGlowWhite 4s ease-in-out infinite alternate;
+      margin-bottom: 10px;
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.4), 
+                   0 0 8px rgba(200, 200, 200, 0.3);
+    }
+
+    @keyframes softGlowWhite {
+      from { text-shadow: 0 0 4px rgba(255,255,255,0.4), 0 0 8px rgba(200,200,200,0.3); }
+      to   { text-shadow: 0 0 6px rgba(255,255,255,0.6), 0 0 12px rgba(200,200,200,0.4); }
+    }
+
+    #home h1 {
+      font-size: 70px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 10px 0;
+      color: #eacb47;
+      animation: softGlowYellow 4s ease-in-out infinite alternate;
+      text-shadow: 0 0 5px rgba(234,203,71,0.5),
+                   0 0 10px rgba(212,160,23,0.4);
+    }
+
+    @keyframes softGlowYellow {
+      from { text-shadow: 0 0 5px rgba(234,203,71,0.5), 0 0 10px rgba(212,160,23,0.4); }
+      to   { text-shadow: 0 0 8px rgba(234,203,71,0.7), 0 0 14px rgba(184,134,11,0.5); }
+    }
+
+    #home p {
+      font-size: 24px;
+      color: #e6d5b8;
+      margin: 10px 0 20px;
+      animation: fadeIn 3s ease;
+      max-width: 800px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Button */
+    .btn {
+      margin-top: 30px;
+      padding: 12px 28px;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      color: #3a2c1c;
+      background: #f5d742;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(245, 215, 66, 0.5);
+      display: inline-block;
+      animation: pulse 2s infinite;
+      position: relative;
+      z-index: 1;
+      text-decoration: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .btn:hover {
+      background: #ffda4a;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(245, 215, 66, 0.7);
+      animation: none;
+    }
+
+    /* Floating Coffee Cups */
+    .coffee {
+      position: absolute;
+      font-size: 30px;
+      opacity: 0.6;
+      animation: float 8s linear infinite;
+      z-index: -1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes float {
+      0% { 
+        transform: translateY(100vh) rotate(0deg); 
+        opacity: 0; 
+      }
+      10% { 
+        opacity: 0.8; 
+      }
+      20% { 
+        transform: translateY(80vh) translateX(10px) rotate(72deg);
+      }
+      40% { 
+        transform: translateY(60vh) translateX(-15px) rotate(144deg);
+      }
+      60% { 
+        transform: translateY(40vh) translateX(20px) rotate(216deg);
+        opacity: 0.9;
+      }
+      80% { 
+        transform: translateY(20vh) translateX(-10px) rotate(288deg);
+      }
+      100% { 
+        transform: translateY(-10vh) rotate(360deg); 
+        opacity: 0;
+      }
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: #f5d742;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-header p {
+      color: #e6d5b8;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    /* About Section */
+    #about {
+      padding: 100px 20px;
+      text-align: center;
+      background: rgba(50, 35, 20, 0.7);
+      backdrop-filter: blur(6px);
+      position: relative;
+    }
+
+    #about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5a2b' fill-opacity='0.09'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: -1;
+    }
+
+    #about h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #f5d742;
+      text-transform: uppercase;
+      animation: glowYellow 2s ease-in-out infinite alternate;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    #about p {
+      max-width: 900px;
+      margin: 20px auto;
+      font-size: 20px;
+      color: #f8f3e6;
+      line-height: 1.7;
+      animation: fadeInUp 2s ease;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Specialists Carousel */
+    #specialists {
+      padding: 80px 20px;
+      background: rgba(50, 35, 20, 0.7);
+      text-align: center;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px 10px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: #f5d742 #2b1c10;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: hidden;
+      touch-action: pan-x;
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar styling for webkit browsers */
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .carousel::-webkit-scrollbar-track {
+      background: #2b1c10;
+      border-radius: 4px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+      background: #f5d742;
+      border-radius: 4px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb:hover {
+      background: #ffda4a;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 250px;
+      background: #2b1c10;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+      scroll-snap-align: start;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 18px;
+      text-align: left;
+    }
+
+    .card-content h3 {
+      font-size: 18px;
+      color: #f5d742;
+      margin-bottom: 8px;
+    }
+
+    .card-content p {
+      font-size: 12px;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .card-content .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #f5d742;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(245, 215, 66, 0.9);
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #3a2c1c;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .carousel-btn:hover {
+      background: #ffda4a;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    /* Add View Full Menu Button */
+    .view-menu-btn {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 100px 20px;
+      background: rgba(50, 35, 20, 0.7);
+      text-align: center;
+      position: relative;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f5d742' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      z-index: -1;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-card {
+      background: rgba(60, 40, 20, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 0.8s ease-out;
+      border: 1px solid #8b5a2b;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(245, 215, 66, 0.4);
+    }
+
+    .contact-card h3 {
+      color: #f5d742;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .contact-card p {
+      color: #e6d5b8;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(40, 25, 10, 0.9);
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #8b5a2b;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      color: #f5d742;
+      font-size: 1.5rem;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .social-links a:hover {
+      color: #ffda4a;
+      transform: translateY(-5px) scale(1.2);
+    }
+
+    .copyright {
+      color: #e6d5b8;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Hours of Operation */
+    .hours {
+      margin-top: 30px;
+      background: rgba(60, 40, 20, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 30px auto;
+      animation: fadeInUp 1s ease;
+      border: 1px solid #8b5a2b;
+    }
+
+    .hours h3 {
+      color: #f5d742;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .hours p {
+      color: #e6d5b8;
+      margin-bottom: 8px;
+    }
+
+    /* Scroll Animation for Sections */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+ 
+    /* Review Button Section */
+    #review-button {
+      text-align: center; 
+      padding: 60px 20px; 
+      background: rgba(50, 35, 20, 0.7);
+      position: relative;
+    }
+
+    #review-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f5d742' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: -1;
+    }
+
+    /* Instagram Section */
+    #instagram {
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(50, 35, 20, 0.7);
+      position: relative;
+    }
+
+    #instagram::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f5d742' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: -1;
+    }
+
+    .instagram-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .instagram-video-link {
+      display: block;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .instagram-video-link:hover {
+      transform: scale(1.02);
+    }
+
+    .video-thumbnail {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border: 2px solid #8b5a2b;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.3);
+      transition: background 0.3s;
+    }
+
+    .instagram-video-link:hover .play-overlay {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .play-button {
+      background: rgba(245, 215, 66, 0.8);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .instagram-video-link:hover .play-button {
+      transform: scale(1.1);
+      background: rgba(245, 215, 66, 0.9);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .logo-main {
+        font-size: 45px;
+      }
+      
+      .logo-subtitle {
+        font-size: 20px;
+      }
+      
+      .logo-img {
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      nav {
+        padding: 15px 20px;
+      }
+      
+      .logo-main {
+        font-size: 35px;
+      }
+      
+      .logo-subtitle {
+        font-size: 16px;
+        letter-spacing: 3px;
+      }
+      
+      .logo-img {
+        height: 80px;
+      }
+      
+      #home h1 {
+        font-size: 55px;
+      }
+      
+      #home h2 {
+        font-size: 35px;
+      }
+      
+      #home p {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        flex-direction: column;
+        background: rgba(50, 35, 20, 0.95);
+        backdrop-filter: blur(10px);
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        padding: 50px 0;
+        border-left: 1px solid #8b5a2b;
+        touch-action: pan-y;
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .nav-links a {
+        margin: 15px 0;
+        font-size: 20px;
+      }
+      
+      .menu-toggle {
+        display: flex;
+        z-index: 1001;
+      }
+      
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+      
+      #home h1 {
+        font-size: 2.8rem;
+      }
+      
+      #home h2 {
+        font-size: 1.8rem;
+      }
+      
+      #home p {
+        font-size: 1.1rem;
+      }
+      
+      #about p {
+        font-size: 18px;
+        padding: 0 15px;
+      }
+
+      /* Responsive adjustments for the logo */
+      .logo-img {
+        height: 70px;
+      }
+      
+      .logo-main {
+        font-size: 28px;
+      }
+      
+      .logo-subtitle {
+        font-size: 14px;
+        letter-spacing: 2px;
+      }
+      
+      .carousel-btn {
+        display: none;
+      }
+      
+      .card {
+        width: 220px;
+      }
+    }
+      
+    @media (max-width: 480px) {
+      .logo-img {
+        height: 60px;
+      }
+      
+      .logo-main {
+        font-size: 24px;
+      }
+      
+      .logo-subtitle {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+      
+      #home h1 {
+        font-size: 2.2rem;
+      }
+      
+      #home h2 {
+        font-size: 1.4rem;
+      }
+      
+      #home p {
+        font-size: 1rem;
+      }
+      
+      .card {
+        width: 200px;
+      }
+      
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Prevent horizontal swipe gestures on the body */
+    body {
+      overscroll-behavior-x: none;
+      touch-action: pan-y;
+    }
+  </style>
+</head>
+<body>
+  <div class="cafe-overlay"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="#home" class="logo">
+      <img src="E:\KappieKafe\logo2.png" alt="Kaappi Kafe Logo" class="logo-img">
+      <div class="logo-container">
+        <div class="logo-main">KAAPPI KAFE</div>
+        <div class="logo-subtitle">A SIP FOR HAPPINESS</div>
+      </div>
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="#about">About</a>
+      <a href="#review-button">Review</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <h2>WELCOME TO</h2>
+    <h1>KAAPPI KAFE</h1>
+    <p>Brewing happiness, one cup at a time </p>
+    
+    <!-- Floating Coffee Icons -->
+    <div class="coffee" style="left:10%; animation-duration: 6s;">☕</div>
+    <div class="coffee" style="left:30%; animation-duration: 10s;">🍩</div>
+    <div class="coffee" style="left:50%; animation-duration: 8s;">🥤</div>
+    <div class="coffee" style="left:70%; animation-duration: 12s;">🍪</div>
+    <div class="coffee" style="left:90%; animation-duration: 9s;">☕</div>
+    <div class="coffee" style="left:60%; animation-duration: 5s;">🍦</div>
+    <div class="coffee" style="left:20%; animation-duration: 8s;">🍹</div>
+    <div class="coffee" style="left:85%; animation-duration: 7s;">🍔</div>
+    <div class="coffee" style="left:40%; animation-duration: 11s;">🍕</div>
+    
+    <a href="#menu-preview" class="btn">Explore Our Menu</a>
+  </section>
+  
+  <!-- Instagram Section -->
+  <section id="instagram">
+    <div class="section-header fade-in">
+      <h2>Follow Us on Instagram</h2>
+      <p>Check out our latest videos and posts</p>
+    </div>
+
+    <!-- Instagram Video Thumbnail with Link -->
+    <div class="instagram-container">
+      <a href="https://www.instagram.com/reel/DKo8-rzSTjh/" target="_blank" class="instagram-video-link">
+        <div class="video-thumbnail">
+          <!-- Thumbnail image - replace with your actual thumbnail -->
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=480&q=80" 
+               alt="Kaappi Kafe Instagram Video" 
+               style="width: 100%; height: auto; display: block;">
+          <!-- Play button overlay -->
+          <div class="play-overlay">
+            <div class="play-button">
+              <i class="fab fa-instagram" style="font-size: 24px; color: #3a2c1c;"></i>
+            </div>
+          </div>
+        </div>
+      </a>
+      
+      <p style="margin-top: 20px;">
+        <a href="https://www.instagram.com/reel/DKo8-rzSTjh/" target="_blank" 
+           class="btn" style="padding: 10px 20px; font-size: 16px;">
+          Watch on Instagram
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Menu Preview Section - Carousel Version -->
+  <section id="menu-preview">
+    <div class="section-header fade-in"></div>
+      </section>
+
+    <!-- Specialists -->
+    <section id="specialists">
+      <div class="section-header">
+        <h2>Our Specialists</h2>
+        <p>Discover our most popular items that keep customers coming back for more</p>
+        <p style="font-size: 14px; color: #e6d5b8; margin-top: 10px; font-style: italic;">
+          Note: Product images are AI-generated for illustrative purposes
+        </p> 
+      </div>
+      
+      <!-- Updated carousel cards without onclick attributes -->
+      <div class="carousel-container">
+        <div class="carousel">
+          <!-- Specialist 1 - Lime Drinks -->
+          <div class="card">
+            <img src="E:\KappieKafe\limew.jpg" alt="Special Lime Drinks">
+            <div class="card-content">
+              <h3>Special Lime Drinks</h3>
+              <p>Refreshing lime varieties with mint, pineapple & passion fruit.</p>
+              
+            </div>
+          </div>
+
+          <!-- Specialist 2 - Pastries -->
+          <div class="card">
+            <img src="E:\KappieKafe\colboost.jpg" alt="Special Cold Boost">
+            <div class="card-content">
+              <h3>Special Cold Boost</h3>
+              <p>A cool, refreshing burst of energy to keep you active and alert.</p>
+              
+            </div>
+          </div>
+
+          <!-- Specialist 3 - Smoothies -->
+          <div class="card">
+            <img src="E:\KappieKafe\momosw.jpg" alt="Momos">
+            <div class="card-content">
+              <h3>Momos</h3>
+              <p>Soft, steamed dumplings filled with flavorful veggies or meat, served with spicy chutney.</p>
+
+            </div>
+          </div>
+
+          <!-- Specialist 4 - Chef Specials -->
+          <div class="card">
+            <img src="E:\KappieKafe\pine.jpg" alt="Juices">
+            <div class="card-content">
+              <h3>Juices</h3>
+              <p>Freshly squeezed, fruity, and refreshing drinks to energize your day.</p>
+              
+            </div>
+          </div>
+
+          <!-- Specialist 5 - Latte Art -->
+          <div class="card">
+            <img src="E:\KappieKafe\faloodaw.jpg" alt="Falooda">
+            <div class="card-content">
+              <h3>Falooda</h3>
+              <p>A rich, chilled dessert drink layered with noodles, basil seeds, ice cream, and sweet syrup.</p>
+              
+            </div>
+          </div>
+		  
+		  <!-- Updated carousel cards without onclick attributes -->
+      
+          <div class="card">
+            <img src="E:\KappieKafe\mojitow.jpg" alt="Mojitos">
+            <div class="card-content">
+              <h3>Mojitos</h3>
+              <p>Refreshing Mojitos varieties with mint, pineapple & passion fruit.</p>
+              
+            </div>
+          </div>
+		  
+        </div>
+      </div>
+	  
+	  
+
+      <div class="view-menu-btn">
+        <a href="menu.html" class="btn">View Full Menu</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p class="fade-in">
+        Welcome to <b>KAAPPI KAFE</b> – your go-to spot for delicious bites and refreshing treats!  
+        From hot and steamy momos to crispy nuggets and fries, we've got the perfect snacks to satisfy your cravings.  
+        Cool off with our creamy ice creams, fresh juices, zesty mojitos, thick shakes, fruity smoothies, and indulgent faloodas.  
+        <br><br>
+        Our specialties? You can't miss our momos, signature shakes, and loaded faloodas – customer favorites for a reason!  
+        <br><br>
+        Come chill, snack, and sip at <b>KAAPPI KAFE</b> – where every bite is a vibe.  
+      </p>
+
+      <div class="hours fade-in">
+        <h3>Hours of Operation</h3>
+        <p>Monday - Sunday: 10:00 AM - 11:00 PM</p>
+      </div>
+    </section>
+    
+   <!-- Review Button Section -->
+    <section id="review-button" class="fade-in">
+      <a href="https://search.google.com/local/writereview?placeid=ChIJ0WpKAgApBjsR9m1R3UtacH0" class="btn" target="_blank">Leave a Review</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="section-header fade-in">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you. Get in touch with us!</p>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-card fade-in">
+          <h3>📍 Address</h3>
+          <p>near Karimpumkala Restaurant</p>  
+          <p>Pallom ,Kottayam, Kerala 686007</p>
+        </div>
+        
+        <div class="contact-card fade-in">
+          <h3>📞 Phone</h3>
+          <p>+1 (234) 567-8900</p>
+          <p>Mon-Sun: 10:00AM-11:00PM</p>
+        </div>
+        
+        <div class="contact-card fade-in">
+          <h3>✉️ Email</h3>
+          <p>info@kaappikafe.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="copyright">
+        <p>© 2024 Kaappi Kafe. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navLinks = document.querySelector('.nav-links');
+      
+      mobileMenu.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close menu when clicking on a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Scroll animation for elements with fade-in class
+      function checkFade() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+          const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+          
+          if (isVisible) {
+            element.classList.add('visible');
+          }
+        });
+      }
+      
+      // Initial check
+      checkFade();
+      
+      // Check on scroll
+      window.addEventListener('scroll', checkFade);
+    </script>
+</body>
+</html>

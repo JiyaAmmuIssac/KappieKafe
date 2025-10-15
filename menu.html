@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaappi Kafe - Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #2b1d0e, #000, #3d2b1f, #111);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: white;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      animation: slideDown 0.7s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    /* Enhanced Logo Styling */
+    nav .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 5px;
+    }
+    
+    .logo-img {
+      height: 100px;
+      width: auto;
+    }
+    
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      line-height: 1;
+    }
+    
+    .logo-main {
+      font-size: 28px;
+      font-weight: bold;
+      color: #f5d742;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    
+    .logo-subtitle {
+      font-size: 15px;
+      color: #fff;
+      letter-spacing: 3px;
+      text-align: left;
+      margin-top: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: #f5d742;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #f5d742;
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background-color: #f5d742;
+      transition: all 0.3s;
+    }
+
+    /* Menu Container */
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .menu-header h1 {
+      font-size: 48px;
+      color: #f5d742;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .menu-header p {
+      color: #ddd;
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Menu Categories */
+    .menu-categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .category-btn {
+      background: rgba(245, 215, 66, 0.2);
+      color: #f5d742;
+      border: 1px solid #f5d742;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .category-btn:hover, .category-btn.active {
+      background: #f5d742;
+      color: #2b1d0e;
+    }
+
+    /* Menu Items */
+    .menu-section {
+      margin-bottom: 60px;
+    }
+
+    .menu-section h2 {
+      font-size: 32px;
+      color: #f5d742;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f5d742;
+      display: inline-block;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .menu-item {
+      background: rgba(43, 29, 14, 0.7);
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+	/* Add to your menu.css */
+.menu-item.highlighted {
+  background: rgba(245, 215, 66, 0.3) !important;
+  border: 2px solid #f5d742 !important;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 10px #f5d742;
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .menu-item-name {
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .menu-item-price {
+      color: #f5d742;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .menu-item-desc {
+      color: #ddd;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Note Section */
+    .menu-note {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      background: rgba(245, 215, 66, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid #f5d742;
+    }
+	
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #f5d742;
+      margin-top: 50px;
+    }
+
+    .menu-note p {
+      color: #ddd;
+      font-style: italic;
+    }
+	
+
+    .copyright {
+      color: #aaa;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        backdrop-filter: blur(10px);
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        padding: 50px 0;
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .nav-links a {
+        margin: 15px 0;
+        font-size: 20px;
+      }
+      
+      .menu-toggle {
+        display: flex;
+        z-index: 1001;
+      }
+      
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+      
+      .menu-header h1 {
+        font-size: 36px;
+      }
+      
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .menu-categories {
+        gap: 10px;
+      }
+      
+      .category-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+      
+      /* Responsive adjustments for the logo */
+      .logo-img {
+        height: 70px;
+      }
+      
+      .logo-main {
+        font-size: 28px;
+      }
+      
+      .logo-subtitle {
+        font-size: 14px;
+        letter-spacing: 2px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo-img {
+        height: 60px;
+      }
+      
+      .logo-main {
+        font-size: 24px;
+      }
+      
+      .logo-subtitle {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="E:\KappieKafe\logo2.png" alt="Kaappi Kafe Logo" style="height:100px; width:100px; margin-right:-30px;">
+      <div class="logo-container">
+        <div class="logo-main">KAAPPI KAFE</div>
+        <div class="logo-subtitle">A SIP FOR HAPPINESS</div>
+      </div>
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#review-button">Reviews</a>
+	  <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Menu Container -->
+  <div class="menu-container">
+    <div class="menu-header">
+      <h1>Our Menu</h1>
+      <p>Discover our delicious offerings that keep customers coming back for more</p>
+    </div>
+
+    <!-- Menu Categories -->
+    <div class="menu-categories">
+      <button class="category-btn active" data-category="all">All Items</button>
+      <button class="category-btn" data-category="cutlets">Cutlets</button>
+      <button class="category-btn" data-category="juices">Juices</button>
+      <button class="category-btn" data-category="mixed-juices">Mixed Juices</button>
+      <button class="category-btn" data-category="smoothies">Smoothies</button>
+      <button class="category-btn" data-category="faloodas">Faloodas</button>
+      <button class="category-btn" data-category="hot-drinks">Hot Drinks</button>
+	  <button class="category-btn" data-category="special">Kaappi Kafe Special</button>
+      <button class="category-btn" data-category="snacks">Snacks</button>
+      <button class="category-btn" data-category="lime">Lime Specials</button>
+      <button class="category-btn" data-category="mojitos">Mojitos</button>
+      <button class="category-btn" data-category="shakes">Shakes</button>
+    </div>
+
+
+	
+    <!-- Cutlets -->
+    <div class="menu-section" id="cutlets">
+      <h2>🍗 Cutlets</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Chicken Cutlet</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Crispy and flavorful chicken cutlet served with dipping sauce</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Beef Cutlet</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Savory beef cutlet with herbs and spices</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Juices -->
+    <div class="menu-section" id="juices">
+      <h2>🥤 Fresh Juices</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Watermelon Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Refreshing watermelon juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Musambi Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Sweet and tangy musambi (sweet lime) juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Carrot Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Healthy and nutritious carrot juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Orange Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Freshly squeezed orange juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Mango Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Sweet and creamy mango juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Avocado Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Creamy and nutritious avocado juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Pineapple Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Sweet and tangy pineapple juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Anar (Pomegranate) Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Antioxidant-rich pomegranate juice</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Apple Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Refreshing apple juice</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mixed Juices -->
+    <div class="menu-section" id="mixed-juices">
+      <h2>🥤 Mixed Juices</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Mixed Fruit Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Blend of seasonal fruits for a refreshing drink</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">ABC Juice</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Apple, Beetroot, and Carrot juice - a healthy combination</p>
+        </div>
+      </div>
+    </div>
+
+   <!-- Smoothies Section -->
+<div class="menu-section">
+  <h2 id="smoothies">🥤 Smoothies</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <a href="#smoothies" class="menu-item-name">Chikku Smoothie</a>
+
+      </div>
+      <p class="menu-item-desc">Creamy sapodilla smoothie</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-header">
+        <a href="#smoothies" class="menu-item-name">Avocado Smoothie</a>
+        
+      </div>
+      <p class="menu-item-desc">Rich and creamy avocado smoothie</p>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Faloodas -->
+    <div class="menu-section" id="faloodas">
+      <h2>🍨 Faloodas & Sundaes</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Royal Falooda</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Premium falooda with ice cream, nuts, and rose syrup</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hot Drinks -->
+    <div class="menu-section" id="hot-drinks">
+      <h2>☕ Hot Drinks</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Kashmiri Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Traditional pink Kashmiri tea with spices</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Kesar Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Saffron-infused special tea</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Hyderabadi Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Strong Irani chai from Hyderabad</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Cardamom Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Aromatic tea with cardamom flavor</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Ginger Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Spicy ginger-infused tea</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Masala Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Traditional Indian spiced tea</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Lemon Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Refreshing tea with lemon</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Passion Fruit Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Exotic passion fruit flavored tea</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Mint Tea</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Refreshing mint-infused tea</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kaappi Kafe Special -->
+    <div class="menu-section" id="special">
+      <h2>🔥 Kaappi Kafe Special</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Cold Coffee</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Iced coffee with cream</p>
+        </div>
+		<div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Cold Boost</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Chilled energy drink</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Snacks -->
+    <div class="menu-section" id="snacks">
+      <h2>🍟 Snacks</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">French Fries (Normal)</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Crispy golden french fries</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">French Fries (Masala)</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Spicy masala french fries</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Veg Momos</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Steamed or fried vegetable momos</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Chicken Momos</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Steamed or fried chicken momos</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Beef Momos</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Steamed or fried beef momos</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Chicken Nuggets</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Crispy chicken nuggets with dip</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Cheesy Nuggets</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Cheese-filled nuggets with dip</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lime Specials -->
+    <div class="menu-section" id="lime">
+      <h2>🍋 Lime Specials</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Fresh Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Refreshing lime drink with a hint of salt</p>
+        </div>
+        <div class="menu-item">	
+          <div class="menu-item-header">
+            <span class="menu-item-name">Soda Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Zesty lime with sparkling soda</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Mint Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Fresh lime with mint leaves</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Pineapple Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Tropical pineapple with zesty lime</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Grape Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Sweet grape with tangy lime</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Mango Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Sweet mango with zesty lime twist</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Blue Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Blue curacao with fresh lime</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Ginger Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Spicy ginger with refreshing lime</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Strawberry Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Sweet strawberry with tangy lime</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Green Apple Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Crisp green apple with zesty lime</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Passion Fruit Lime</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Exotic passion fruit with fresh lime</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mojitos -->
+    <div class="menu-section" id="mojitos">
+      <h2>🍹 Refreshing Mojitos</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Guava Mojito</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Tropical guava with mint and lime</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Strawberry Mojito</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Sweet strawberry with refreshing mint</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Green Apple Mojito</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Crisp green apple with minty freshness</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Passion Fruit Mojito</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Exotic passion fruit with mint</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Blue Current Mojito</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Blue curacao with mint and lime</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shakes -->
+    <div class="menu-section" id="shakes">
+      <h2>🥤 Creamy Shakes</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Papaya Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Creamy papaya milkshake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Tender Coconut Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Refreshing tender coconut shake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Sharjah Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Special Sharjah recipe shake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Butterscotch Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Rich butterscotch flavored shake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Vanilla Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Classic vanilla milkshake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Chocolate Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Rich chocolate milkshake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Ooreo Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Cookie-filled Oreo milkshake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">KitKat Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Chocolatey KitKat milkshake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Spanish Delight Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Special Spanish recipe shake</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Snickers Shake</span>
+            <span class="menu-item-price"></span>
+          </div>
+          <p class="menu-item-desc">Nutty Snickers milkshake</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Note Section -->
+    <div class="menu-note">
+      <p>📝 <strong>Note:</strong> Rates may change subject to the season. All snacks are served in 6 pcs per plate.</p>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <p>Kaappi Kafe</p>
+      <p>Since 2024</p>
+    </div>
+    <div class="copyright">
+      <p>© 2024 Kaappi Kafe. All rights reserved.</p>
+    </div>
+  </footer>
+
+<script>
+// Function to get URL parameters
+function getUrlParameter(name) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+  const results = regex.exec(window.location.href);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Product to section mapping
+const productSectionMap = {
+  'fresh-lime': 'lime',
+  'chicken-cutlet': 'cutlets',
+  'chikku-smoothie': 'smoothies',
+  'cold-coffee': 'special',
+  'kashmiri-tea': 'hot-drinks'
+};
+
+// Mobile menu toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenu.addEventListener('click', function() {
+  this.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+
+// Close menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
+});
+
+// Category filtering and product navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  const menuSections = document.querySelectorAll('.menu-section');
+  
+  // Check for URL parameters
+  const urlProduct = getUrlParameter('product');
+  
+  if (urlProduct && productSectionMap[urlProduct]) {
+    // If product parameter exists, navigate to that specific product
+    const targetSection = productSectionMap[urlProduct];
+    const targetProduct = document.getElementById(urlProduct);
+    
+    if (targetProduct) {
+      // Show only the target section
+      menuSections.forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      const sectionElement = document.getElementById(targetSection);
+      if (sectionElement) {
+        sectionElement.style.display = 'block';
+        
+        // Activate the corresponding category button
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.getAttribute('data-category') === targetSection) {
+            btn.classList.add('active');
+          }
+        });
+        
+        // Scroll to the product after a short delay
+        setTimeout(() => {
+          targetProduct.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Add highlight effect to the target product
+          targetProduct.classList.add('highlighted');
+          
+          // Remove highlight after 3 seconds
+          setTimeout(() => {
+            targetProduct.classList.remove('highlighted');
+          }, 3000);
+        }, 500);
+      }
+    }
+  }
+  
+  // Category button functionality
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      categoryButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      button.classList.add('active');
+      
+      const category = button.getAttribute('data-category');
+      
+      if (category === 'all') {
+        // Show all menu sections
+        menuSections.forEach(section => {
+          section.style.display = 'block';
+        });
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Hide all menu sections
+        menuSections.forEach(section => {
+          section.style.display = 'none';
+        });
+        
+        // Show only the selected category
+        const targetSection = document.getElementById(category);
+        if (targetSection) {
+          targetSection.style.display = 'block';
+          
+          // Scroll to the section
+          setTimeout(() => {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
